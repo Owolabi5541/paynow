@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>We'll be right back | PayNow</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#12211c;
+    --paper:#f7f5f0;
+    --card:#ffffff;
+    --line:#dfdad0;
+    --forest:#1f5d4f;
+    --forest-dark:#153f36;
+    --muted:#5f6b64;
+    --amber:#b9822f;
+    --radius:10px;
+    --shadow: 0 1px 2px rgba(18,33,28,0.06), 0 8px 24px rgba(18,33,28,0.06);
+  }
+  *{ box-sizing:border-box; }
+  body{
+    margin:0;
+    min-height:100vh;
+    font-family:'Manrope', system-ui, sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    display:flex;
+    flex-direction:column;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2{ font-family:'Source Serif 4', Georgia, serif; margin:0; }
+
+  header{
+    border-bottom:1px solid var(--line);
+    padding:18px 24px;
+  }
+  .header-inner{
+    max-width:1080px; margin:0 auto;
+    display:flex; align-items:center;
+  }
+  .logo{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Source Serif 4', serif;
+    font-weight:600; font-size:22px; letter-spacing:-0.01em;
+    text-decoration:none; color:var(--ink);
+  }
+  .logo-mark{
+    width:30px; height:30px; border-radius:8px;
+    background: linear-gradient(155deg, var(--forest) 0%, var(--forest-dark) 100%);
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .logo-mark svg{ width:16px; height:16px; }
+
+  main{
+    flex:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:48px 24px;
+  }
+
+  .panel{
+    max-width:520px;
+    width:100%;
+    text-align:center;
+  }
+
+  .status-icon{
+    width:80px; height:80px;
+    margin:0 auto 28px;
+    border-radius:50%;
+    background:rgba(185,130,47,0.12);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--amber);
+    position:relative;
+  }
+  .status-icon svg{ width:36px; height:36px; }
+  .pulse-ring{
+    position:absolute; inset:0;
+    border-radius:50%;
+    border:2px solid rgba(185,130,47,0.35);
+    animation:pulse 2.4s ease-out infinite;
+  }
+  @keyframes pulse{
+    0%{ transform:scale(1); opacity:0.8; }
+    100%{ transform:scale(1.6); opacity:0; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .pulse-ring{ animation:none; display:none; }
+  }
+
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:12.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--amber);
+    margin-bottom:14px;
+  }
+  .eyebrow::before{ content:''; width:16px; height:1px; background:var(--amber); }
+
+  h1{
+    font-size:clamp(26px, 4vw, 34px);
+    line-height:1.2; font-weight:600; letter-spacing:-0.01em;
+  }
+  .panel p{
+    margin-top:14px; font-size:15.5px; line-height:1.65; color:var(--muted);
+  }
+
+  .status-card{
+    margin-top:28px;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:20px 22px;
+    text-align:left;
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+  }
+  .status-card svg{ width:18px; height:18px; color:var(--forest); flex-shrink:0; margin-top:2px; }
+  .status-card .label{ font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); }
+  .status-card .value{ font-size:14px; font-weight:600; color:var(--ink); margin-top:2px; }
+
+  .actions{
+    margin-top:32px;
+    display:flex;
+    gap:14px;
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+  .btn{
+    font-family:inherit; font-size:14.5px; font-weight:700;
+    padding:12px 26px; border-radius:999px;
+    text-decoration:none;
+    cursor:pointer;
+    display:inline-flex; align-items:center; gap:8px;
+    transition:background .15s ease, border-color .15s ease, color .15s ease;
+  }
+  .btn-primary{
+    background:var(--forest); color:#fff; border:1px solid var(--forest);
+  }
+  .btn-primary:hover{ background:var(--forest-dark); border-color:var(--forest-dark); }
+  .btn-secondary{
+    background:transparent; color:var(--ink); border:1px solid var(--line);
+  }
+  .btn-secondary:hover{ border-color:var(--forest); color:var(--forest); }
+  .btn svg{ width:15px; height:15px; }
+
+  .retry-note{
+    margin-top:22px;
+    font-size:13px; color:var(--muted);
+  }
+  .retry-note span{ font-weight:700; color:var(--ink); }
+
+  footer{
+    border-top:1px solid var(--line);
+    padding:22px 24px;
+    text-align:center;
+  }
+  .copyright{ font-size:12.5px; color:#96907f; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 12c0-4.4 3.6-8 8-8s8 3.6 8 8-3.6 8-8 8" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="12" cy="12" r="2.4" fill="white"/>
+        </svg>
+      </span>
+      PayNow
+    </a>
+  </div>
+</header>
+
+<main>
+  <div class="panel">
+    <div class="status-icon">
+      <div class="pulse-ring"></div>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 6v5a2 2 0 0 0 2 2h1M3 6l1.5-3h15L21 6M21 6v5a2 2 0 0 1-2 2h-1M8 20h8M12 13v7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+
+    <span class="eyebrow">Service unavailable</span>
+    <h1>We'll be right back.</h1>
+    <p>Our servers are temporarily unavailable. Your payment has not been processed and no funds have been taken. Please try again in a few minutes.</p>
+
+    <div class="actions">
+      <button class="btn btn-primary" id="retryBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 12a9 9 0 1 1-2.6-6.4M21 4v5h-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Try again
+      </button>
+      <a href="#" class="btn btn-secondary">
+        Contact support
+      </a>
+    </div>
+
+    <p class="retry-note">Automatically checking again in <span id="countdown">30</span>s</p>
+  </div>
+</main>
+
+<footer>
+  <div class="copyright">© 2026 PayNow. Website protected by Paynow.</div>
+</footer>
+
+<script>
+  const countdownEl = document.getElementById('countdown');
+  const retryBtn = document.getElementById('retryBtn');
+  let seconds = 30;
+
+  function tick(){
+    seconds -= 1;
+    if(seconds <= 0){
+      seconds = 30;
+    }
+    countdownEl.textContent = seconds;
+  }
+  setInterval(tick, 1000);
+
+  retryBtn.addEventListener('click', () => {
+    retryBtn.disabled = true;
+    const original = retryBtn.innerHTML;
+    retryBtn.innerHTML = 'Checking…';
+    setTimeout(() => {
+      retryBtn.innerHTML = original;
+      retryBtn.disabled = false;
+      seconds = 30;
+    }, 1200);
+  });
+</script>
+
+</body>
+</html>
