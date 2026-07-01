@@ -1,0 +1,6 @@
+name = "paynow"
+compatibility_date = "2026-07-01"
+
+[site]
+bucket = "."
+exclude = [".git"]
